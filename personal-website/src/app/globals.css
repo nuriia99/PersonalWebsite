@@ -31,3 +31,19 @@ a {
   text-decoration: none;
 }
 
+.about-me{
+  display: grid;
+  place-items: center;
+
+}
+
+@media (min-width: 1024px) {
+  .lg\:about-me-container, .lg\:presentation-container {
+    width: 70%;
+    text-align: center;
+  }
+  .lg\:w-70p{
+    width: 70%;
+  }
+}
+
