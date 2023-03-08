@@ -1,6 +1,8 @@
 import { Poppins, Roboto_Mono } from 'next/font/google'
-import {BsFillMoonStarsFill} from 'react-icons/bs'
-import {AiFillLinkedin, AiFillGithub, AiFillHtml5} from 'react-icons/ai'
+import {BsFillMoonStarsFill, BsPersonFillGear} from 'react-icons/bs'
+import {AiFillLinkedin, AiFillGithub, AiFillFastForward, AiFillMail} from 'react-icons/ai'
+import {RiTeamFill} from 'react-icons/ri'
+import {MdReportProblem} from 'react-icons/md'
 import Image from 'next/image'
 import face from '../../public/face.png'
 import html5 from '../../public/html5.svg'
@@ -37,7 +39,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-                <div className='flex justify-center lg:justify-start  gap-4 text-3xl py-3 pl-0 text-zinc-600'>
+              <div className='flex justify-center lg:justify-start  gap-4 text-3xl py-3 pl-0 text-zinc-600'>
                 <a className='grid content-center' href='https://www.linkedin.com/in/nuria-anton/'><AiFillLinkedin/></a>
                 <a className='grid content-center' href='https://github.com/nuriia99'><AiFillGithub/></a>
                 <a href='' className='bg-gradient-to-r text-sm from-red-500 to-red-800 text-white px-4 py-2 rounded-md'>Resume</a>
@@ -70,6 +72,56 @@ export default function Home() {
             <div className='p-5'>
               <div className='relative h-60 w-60 flex justify-center min-w-fit overflow-hidden'>
                 <Image className='face-img' src={face} layout={'fill'} objectFit={'contain'}/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='about-me px-10'>
+        <div className='lg:about-me-container'>
+          <div className='flex justify-around gap-20 py-20 flex-wrap'>
+            <div className='flex flex-col items-center gap-3'>
+              <AiFillFastForward className='text-5xl text-red-800'/>
+              <p>Fast learning</p>
+            </div>
+            <div className='flex flex-col items-center gap-3'>
+              <RiTeamFill className='text-5xl text-red-800'/>
+              Team work
+            </div>
+            <div className='flex flex-col items-center gap-3'>
+              <MdReportProblem className='text-5xl text-red-800'/>
+              Problem solving
+            </div>
+            <div className='flex flex-col items-center gap-3'>
+              <BsPersonFillGear className='text-5xl text-red-800'/>
+              Adaptabilty
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='about-me px-10'>
+        <div className='lg:about-me-container'>
+          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 pb-5 pt-36'}>02. Projects</h3>
+
+        </div>
+      </section>
+      <section className='about-me px-10 py-20'>
+        <div className='lg:about-me-container'>
+          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 pb-5 pt-36'}>03. Contact</h3>
+          <h4 className='py-10 text-black font-semibold'>Don't be shy! Contact me! 👇</h4>
+          <div className=' flex flex-wrap justify-start lg:justify-center  gap-10 text-3xl py-3 pl-0 text-zinc-600'>
+            <a href='https://www.linkedin.com/in/nuria-anton/' className='flex items-center gap-4 hover:text-sky-700 transition ease-in-out delay-150'>
+              <AiFillLinkedin/>
+              <div>
+                <p className='text-lg text-black font-semibold'>LinkedIn</p>
+                <p className='text-sm'>Nuria Antón Calle</p>
+              </div>
+            </a>
+            <div className='flex items-center gap-4 hover:text-red-700 transition ease-in-out delay-150'>
+              <AiFillMail/>
+              <div>
+                <p className='text-lg text-black font-semibold'>Mail</p>
+                <p className='text-sm'>nurianton1999@gmail.com</p>
               </div>
             </div>
           </div>
