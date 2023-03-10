@@ -7,11 +7,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className='scroll-smooth'>
       <head>
         <link rel="shortcut icon" href="/codeSlash.png" />
       </head>
-      <body>{children}</body>
+      <body className='bg-red-50'>{children}</body>
     </html>
   )
 }
