@@ -20,24 +20,34 @@ const poppins = Poppins({ subsets: ['latin'], weight:['400', '700'] })
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
+  const [day, setDay] = useState('day')
+  
 
   const handleDarkMode = () => {
     setDarkMode(!darkMode)
+    setDay(() => {
+      if (day === 'day') return ''
+      return 'day'
+    })
   }
-  
   return (
     <main className={poppins.className}>
       <div className={darkMode ? 'dark' : ''}>
       <section id='presentation' className='px-10 dark:bg-gray-900'>
         <div className='bg-red-700 dark:bg-white fixed inset-0 h-fit w-full px-10 py-5  bg-opacity-80 z-10 flex justify-center backdrop-blur'>
           <nav className='relative flex items-center justify-between w-full lg:w-70p text-white dark:text-black '>
-            <h1 className={roboto.className + ' text-2xl'}>{"{dev-nuriia99}"}</h1>
-            <ul className='flex items-center gap-5'>
+            <h1 className={roboto.className + ' text-2xl flex'}>{"{dev-nuriia99}"}</h1>
+            <ul className='flex items-center md:gap-5'>
               <li><a href='#about-me' className='hover:text-orange-200 dark:hover:text-red-600 transition ease-in-out duration-300 hidden md:inline'>About Me</a></li>
               <li><a href='#skills' className='hover:text-orange-200 dark:hover:text-red-600 transition ease-in-out duration-300 hidden md:inline'>Skills</a></li>
               <li><a href='#projects' className='hover:text-orange-200 dark:hover:text-red-600 transition ease-in-out duration-300 hidden md:inline'>Projects</a></li>
               <li><a href='#contact' className='hover:text-orange-200 dark:hover:text-red-600 transition ease-in-out duration-300 hidden md:inline'>Contact</a></li>
-              <li onClick={handleDarkMode}>{darkMode ? <BsFillMoonStarsFill className='cursor-pointer text-2xl text-white dark:text-red-500'/> : <BsFillSunFill className='cursor-pointer text-2xl text-white dark:text-red-500'/>}</li>
+              <li>
+                <button onClick={handleDarkMode} className={darkMode ? 'switch dark' : `switch ${day}`}>
+                  <span className='grid place-items-center'><BsFillSunFill className='cursor-pointer text-md text-white'/></span>
+                  <span className='grid place-items-center'><BsFillMoonStarsFill className='cursor-pointer text-md text-white'/></span>
+                </button>
+              </li>
             </ul>
           </nav>
         </div>
@@ -53,9 +63,9 @@ export default function Home() {
               </div>
             </div>
               <div className='flex justify-center lg:justify-start  gap-4 text-3xl py-3 pl-0 text-zinc-600 dark:text-zinc-400'>
-                <a className='grid content-center hover:text-sky-700 transition ease-in-out duration-300' href='https://www.linkedin.com/in/nuria-anton/'><AiFillLinkedin/></a>
-                <a className='grid content-center hover:text-gray-900 dark:hover:text-gray-400 transition ease-in-out duration-300' href='https://github.com/nuriia99'><AiFillGithub/></a>
-                <a href='' className="relative bg-gradient-to-r text-sm from-red-500 to-red-800 hover:from-red-400 hover:to-red-700 text-white px-4 py-2 rounded-md transition ease-in-out duration-300 before-[''] before:absolute before:inset-0 before:w-full before:h-full before:border-2 before:border-transparent before:hover:border-red-700 before:dark:hover:border-white before:hover:top-1 break-after-autohover before:rounded-md  before:hover:left-1 before:-z-10 before:transition-all before:duration-200">Resume</a>
+                <a target="_blank" className='grid content-center hover:text-sky-700 transition ease-in-out duration-300' href='https://www.linkedin.com/in/nuria-anton/'><AiFillLinkedin/></a>
+                <a target="_blank" className='grid content-center hover:text-gray-900 dark:hover:text-gray-400 transition ease-in-out duration-300' href='https://github.com/nuriia99'><AiFillGithub/></a>
+                <a href='' target="_blank" className="relative bg-gradient-to-r text-sm from-red-500 to-red-800 hover:from-red-400 hover:to-red-700 text-white px-4 py-2 rounded-md transition ease-in-out duration-300 before-[''] before:absolute before:inset-0 before:w-full before:h-full before:border-2 before:border-transparent before:hover:border-red-700 before:dark:hover:border-white before:hover:top-1 break-after-autohover before:rounded-md  before:hover:left-1 before:-z-10 before:transition-all before:duration-200">Resume</a>
               </div>
             <span className='flex items-center flex-wrap gap-7 pt-20'>
               <p className='dark:text-white'>Main Tech Stack</p>
@@ -72,7 +82,7 @@ export default function Home() {
       </section>
       <section id='about-me' className='about-me px-10 dark:bg-gray-900'>
         <div className='lg:about-me-container'>
-          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5 pt-36'}>01. About me</h3>
+          <h3 className={roboto.className + ' text-center flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5 pt-36'}>01. About me</h3>
           <div className='flex lg:flex-row flex-col items-center gap-5'>
             <div className='flex flex-col justify-center'>
               <p className='leading-7 text-justify pb-5 dark:text-white'>
@@ -82,7 +92,7 @@ export default function Home() {
                 I've recently finished a <b>software engineering degree</b> at UPC, and I've completed a FullStack Bootcamp to learn more about the most important technologies. At this point, my goal is to keep learning new skills and working on new projects to put in practise all I've learnt.  
               </p>
             </div>
-            <div className='p-5'>
+            <div>
               <div className='relative h-60 w-60 flex justify-center min-w-fit overflow-hidden'>
                 <Image className='face-img' src={face} layout={'fill'} objectFit={'contain'}/>
               </div>
@@ -92,7 +102,7 @@ export default function Home() {
       </section>
       <section id='skills' className='about-me px-10 dark:bg-gray-900'>
         <div className='lg:about-me-container'>
-          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5 pt-36'}>02. Soft skills</h3>
+          <h3 className={roboto.className + ' text-center flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5 pt-36'}>02. Soft skills</h3>
           <div className='flex justify-around gap-20 py-20 flex-wrap'>
             <div className='flex flex-col items-center gap-3'>
               <AiFillFastForward className='text-5xl text-red-800 dark:text-red-500'/>
@@ -115,16 +125,19 @@ export default function Home() {
       </section>
       <section id='projects' className='about-me px-10 dark:bg-gray-900'>
         <div className='lg:about-me-container flex flex-col justify-center items-center'>
-          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-10 pt-10'}>03. Projects</h3>
+          <h3 className={roboto.className + ' text-center flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-10 pt-10'}>03. Projects</h3>
+          <ProjectCard name="tfg"/>
           <ProjectCard name="booking"/>
+          <ProjectCard name="easybank"/>
+          <ProjectCard name="personaltrainer"/>
         </div>
       </section>
       <section id='contact' className='about-me px-10 py-20 dark:bg-gray-900'>
         <div className='lg:about-me-container'>
-          <h3 className={roboto.className + ' flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5 pt-36'}>04. Contact</h3>
+          <h3 className={roboto.className + ' text-center flex justify-center font-semibold text-3xl text-red-700 dark:text-red-500 pb-5'}>04. Contact</h3>
           <h4 className='py-10 text-black font-semibold dark:text-white'>Don't be shy! Contact me! 👇</h4>
           <div className=' flex flex-wrap justify-start lg:justify-center  gap-10 text-3xl py-3 pl-0 text-zinc-600 dark:text-zinc-400'>
-            <a href='https://www.linkedin.com/in/nuria-anton/' className='flex items-center gap-4 hover:text-sky-700 hover:dark:text-sky-500 transition ease-in-out duration-300'>
+            <a target="_blank" href='https://www.linkedin.com/in/nuria-anton/' className='flex items-center gap-4 hover:text-sky-700 hover:dark:text-sky-500 transition ease-in-out duration-300'>
               <AiFillLinkedin/>
               <div>
                 <p className='text-lg text-black font-semibold dark:text-white text-left'>LinkedIn</p>
