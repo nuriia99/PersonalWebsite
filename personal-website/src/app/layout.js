@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="shortcut icon" href="/codeSlash.png" />
       </head>
-      <body className='bg-red-50'>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
