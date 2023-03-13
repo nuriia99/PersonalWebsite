@@ -18,7 +18,7 @@ export const ProjectCard = ({name}) => {
       explanation: "As a final degree project, I created a multiplatform web application for primary care centers in Spain. On this website you can search for a patient, view their medical history, create and make visits, and generate patient lists.",
       tech: "React, SASS, Axios, MongoDB, Express, Postman, Cypress",
       code: "https://github.com/nuriia99/tfgFrontend",
-      demo: <button onClick={() => setClose(true)}>a</button>
+      demo: <button onClick={() => setClose(true)} className='inline-flex gap-2 items-center'>See more <MdOutlineFindInPage/></button>
     },
     booking: {
       src: bookingImg,
@@ -42,7 +42,7 @@ export const ProjectCard = ({name}) => {
       explanation: "FitYourself it's a landing page to show the services of a personal trainer. In that project I learnt to layout and do a responsive website and the basics of css and bootstrap. ",
       tech: "HTML, CSS, Bootstrap",
       code: "https://github.com/nuriia99/PersonalTrainer",
-      demo: <a href="https://app.netlify.com/sites/nacfityourself/overview" target="_blank" className='flex justify-center items-center gap-3 cursor-pointer hover:text-red-600 transition ease-in-out duration-300'>Live Demo <MdOutlineFindInPage/> </a>
+      demo: <a href="https://nacfityourself.netlify.app/" target="_blank" className='flex justify-center items-center gap-3 cursor-pointer hover:text-red-600 transition ease-in-out duration-300'>Live Demo <MdOutlineFindInPage/> </a>
     }
   }
 
